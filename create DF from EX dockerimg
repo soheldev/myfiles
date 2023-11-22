@@ -1,0 +1,9 @@
+How to Create Dockerfile from an Existing Image
+1)
+$ sudo docker history [image_id_or_name]
+
+$ sudo docker history [image_id_or_name] --no-trunc $argv  | tac | tr -s ' ' | cut -d " " -f 5- | sed 's,^/bin/sh -c #(nop) ,,g' | sed 's,^/bin/sh -c,RUN,g' | sed 's, && ,\n  & ,g' | sed 's,\s*[0-9]*[\.]*[0-9]*[kMG]*B\s*$,,g' | head -n -1
+
+
+2)
+sudo docker run -v /var/run/docker.sock:/var/run/docker.sock --rm chenzj/dfimage [image_id_or_name]
