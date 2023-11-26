@@ -7,3 +7,7 @@ $ sudo docker history [image_id_or_name] --no-trunc $argv  | tac | tr -s ' ' | c
 
 2)
 sudo docker run -v /var/run/docker.sock:/var/run/docker.sock --rm chenzj/dfimage [image_id_or_name]
+
+distory all images
+docker rmi -f $(docker images -aq)
+
