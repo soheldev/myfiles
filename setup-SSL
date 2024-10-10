@@ -1,0 +1,34 @@
+sudo systemctl status nginx
+   12  ls
+   13  free -h
+   14  exit;
+   15  history
+   16  cd /etc/ssl
+   17  clear
+   18  openssl req -nodes -newkey rsa:2048 -keyout iipltest.key -out iipltest.csr
+   19  sudo openssl req -nodes -newkey rsa:2048 -keyout iipltest.key -out iipltest.csr
+   20  clear
+   21  history
+   22  clear
+   23  ls
+   24  cat iipltest.csr
+   25  clear
+   26  sudo mv iipltest.key  /etc/ssl/private/iipltest.key
+   27  clear
+   28  cd /etc/ssl/certs
+   29  ls
+   30  clear
+   31  sudo nano USERTrustRSAAAACA.crt
+   32  sudo nano SectigoRSADomainValidationSecureServerCA.crt
+   33  sudo nano AAACertificateServices.crt
+   34  sudo nano iipltest.crt
+   35  clear
+   36  sudo openssl rsa -noout -modulus -in /etc/ssl/private/iipltest.key | openssl md5
+   37  sudo openssl x509 -noout -modulus -in /etc/ssl/certs/iipltest.crt | openssl md5
+   38  clear
+   39  cd /etc/ssl/certs
+   40  sudo nano iipltest.crt
+   41  sudo openssl x509 -noout -modulus -in /etc/ssl/certs/iipltest.crt | openssl md5
+   42  sudo openssl rsa -noout -modulus -in /etc/ssl/private/iipltest.key | openssl md5
+   43  sudo  cat iipltest.crt AAACertificateServices.crt SectigoRSADomainValidationSecureServerCA.crt USERTrustRSAAAACA.crt  > ca-bundle-iipltest.crt
+   44  sudo cat iipltest.crt AAACertificateServices.crt SectigoRSADomainValidationSecureServerCA.crt USERTrustRSAAAACA.crt  > ca-bundle-iipltest.crt
